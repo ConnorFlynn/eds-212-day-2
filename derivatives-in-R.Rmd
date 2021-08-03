@@ -10,5 +10,29 @@ knitr::opts_chunk$set(echo = TRUE)
 
 library('tidyverse')
 library('palmerpenguins')
+
+
+
+```
+
+
+
+```{r}
+# Find the derivative expression
+
+fx <- expression(x^2)
+x <- 3
+df_dx <- D(expr = fx, name = 'x')
+df_dx
+eval(expr = df_dx)
+
+
+
+px <- expression(2 *(3*a+2)^4 * (4−5))
+a <- 1.2
+df_da <- D(expr = px, name = 'a')
+df_da
+
+eval(expr =df_da)
 ```
 
