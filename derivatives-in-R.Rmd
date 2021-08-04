@@ -88,11 +88,39 @@ ggplot(data = data.frame(x = c(-0.5, 0.5)), aes(x = x)) +
 #Penguins
 
 ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
-  geom_point(aes(color = species))
+  geom_point(aes(color = species)) +
+  labs(x = "Bill Length (mm)", 
+       y = "Bill Depth (mmg)",
+       title =  "Palmer penguins size measurements", 
+       caption = "Data collected by KB Gorman et al. at Palmer Station",
+       color = "Species") +
+  facet_wrap(~island) + 
+  theme_minimal() +
+  theme(plot.caption = element_text(hjust = 0.5))+
+  theme(plot.title = element_text(hjust = 0.5))
 
 
 
 
+
+
+```
+
+
+```{r warning=FALSE}
+#Jitter Plot
+
+ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) +
+  geom_jitter(aes(color = island), show.legend = FALSE) +
+  labs(x = "Species", 
+       y = "Flipper Length (mm))",
+       title =  "Palmer penguins size measurements", 
+       caption = "Data collected by KB Gorman et al. at Palmer Station",
+       color = "Island") +
+  facet_wrap(~island) + 
+  theme_minimal() +
+  theme(plot.caption = element_text(hjust = 0.5))+
+  theme(plot.title = element_text(hjust = 0.5))
 
 
 ```
